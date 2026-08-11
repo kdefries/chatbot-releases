@@ -1,4 +1,4 @@
-# Illumibotto
+# Telly
 
 An AI chat bot for your Twitch channel, packaged as a Windows desktop app. It joins your chat under a Twitch account **you** choose, replies when chatters mention it (powered by Google Gemini), can answer factual questions with live web search, and comes with configurable personalities.
 
@@ -6,7 +6,7 @@ This repo hosts the installers. Download the latest from the [Releases page](../
 
 ## Install
 
-1. Download `Illumibotto-Setup-<version>.exe` from the latest release.
+1. Download `Telly-Setup-<version>.exe` from the latest release.
 2. (Optional) Verify the download against `SHA256SUMS` from the same release.
 3. Run the installer. If Windows SmartScreen appears, choose **More info → Run anyway** (the installer is not code-signed).
 
