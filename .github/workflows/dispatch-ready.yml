@@ -1,0 +1,33 @@
+# Hand an issue off to development in the private repo.
+#
+# When a maintainer applies the 'ready-for-dev' label, send a
+# repository_dispatch to kdefries/chatbot, whose issue-dev workflow implements
+# the issue and opens a PR into develop. Only collaborators can apply labels,
+# so strangers cannot trigger this.
+#
+# Needs the CHATBOT_DISPATCH_TOKEN secret: a fine-grained PAT with
+# Contents: Read and write on kdefries/chatbot (repository_dispatch requires
+# contents write). Only the numeric issue number is forwarded — never
+# interpolate issue title/body here (script injection risk).
+name: Hand off to development
+
+on:
+  issues:
+    types: [labeled]
+
+permissions: {}
+
+jobs:
+  dispatch:
+    if: github.event.label.name == 'ready-for-dev'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Dispatch to kdefries/chatbot
+        env:
+          GH_TOKEN: ${{ secrets.CHATBOT_DISPATCH_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh api repos/kdefries/chatbot/dispatches \
+            -f event_type=telly-issue-ready \
+            -F "client_payload[issue]=$ISSUE_NUMBER"

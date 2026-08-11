@@ -1,0 +1,57 @@
+name: Bug report
+description: Something in Telly is broken or not working right
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Fill in what you can. Our triage assistant may reply with a question or two to help pin the problem down.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Tell us what went wrong
+      placeholder: Telly crashed when I tried to ...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What you did right before the problem showed up
+      placeholder: |
+        1. Open Telly
+        2. Connect to my channel
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: false
+  - type: input
+    id: telly-version
+    attributes:
+      label: Telly version
+      description: Shown in the app settings or in the installer file name
+      placeholder: 1.2.2
+    validations:
+      required: true
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      placeholder: Windows 11
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error messages or logs
+      description: Paste any error text you saw
+      render: text
+    validations:
+      required: false

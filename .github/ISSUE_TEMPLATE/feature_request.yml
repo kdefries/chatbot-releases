@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest an idea or improvement for Telly
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. Fill in what you can. Our triage assistant may reply with a question or two to understand what you need.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve
+      description: The situation where Telly falls short for you today
+      placeholder: When I am streaming, I wish Telly could ...
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you would like to see
+      description: Describe how you imagine it working
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Workarounds you have tried
+    validations:
+      required: false
